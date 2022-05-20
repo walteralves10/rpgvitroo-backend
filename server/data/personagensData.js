@@ -5,17 +5,29 @@ exports.getPersonagens = () => {
 };
 
 exports.getPersonagensUnicaMesa = (fk_id) => {
-    return db.query('SELECT * FROM personagens WHERE fk_id_mesa_personagem = $1', [fk_id]);
+    return db.query('SELECT * FROM personagens WHERE fk_id_mesa = $1', [fk_id]);
 };
 
 exports.postPersonagens = (personagem) => {
-    return db.query('INSERT INTO personagens(nome_personagem, ponto_vida_total_personagem, ponto_vida_atual_personagem, forca_personagem, destreza_personagem, constituicao_personagem, inteligencia_personagem, sabedoria_personagem, carisma_personagem, descricao_personagem, fk_id_mesa_personagem) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', 
-    [personagem.nome_personagem , personagem.ponto_vida_total_personagem , 
-     personagem.ponto_vida_atual_personagem , personagem.forca_personagem , 
-     personagem.destreza_personagem , personagem.constituicao_personagem , 
-     personagem.inteligencia_personagem , personagem.sabedoria_personagem , 
-     personagem.carisma_personagem , personagem.descricao_personagem , 
-     personagem.fk_id_mesa_personagem]);
+    return db.one('INSERT INTO personagens(nome, ponto_vida_total, ponto_vida_atual, forca, destreza, constituicao, inteligencia, sabedoria, carisma, descricao) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) returning id ', 
+    [personagem.nome , personagem.ponto_vida_total , 
+     personagem.ponto_vida_atual , personagem.forca , 
+     personagem.destreza , personagem.constituicao , 
+     personagem.inteligencia , personagem.sabedoria , 
+     personagem.carisma , personagem.descricao], a => a.id);
 };
+
+exports.putPersonagens = (id, personagem) => {
+    return db.none('UPDATE personagens SET nome=$1, ponto_vida_total=$2, ponto_vida_atual=$3, forca=$4, destreza=$5, constituicao=$6, inteligencia=$7, sabedoria=$8, carisma=$9, descricao=$10 WHERE id = $11',
+    [personagem.nome , personagem.ponto_vida_total , 
+    personagem.ponto_vida_atual , personagem.forca , 
+    personagem.destreza , personagem.constituicao , 
+    personagem.inteligencia , personagem.sabedoria , 
+    personagem.carisma , personagem.descricao, id]);
+}
+
+exports.deletePersonagens = (id) => {
+    return db.none('DELETE FROM personagens WHERE id = $1', [id]);
+}
 
 //prisma

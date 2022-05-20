@@ -13,5 +13,6 @@ app.use(express.json());
 
 app.use('/rpg', require('./route/mesasRoute'));
 app.use('/rpg', require('./route/personagensRoute'));
+app.use('/rpg', require('./route/mesas_personagensRoute'));
 
 app.listen(4000);
