@@ -2,8 +2,9 @@
   "name": "rpgvitroo-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
+    "start": "npx nodemon main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
