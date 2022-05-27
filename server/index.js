@@ -5,9 +5,6 @@ const app = express();
 const corsConfig = {
     origin:[
         'https://rpg-vitroo.herokuapp.com',
-        'https://rpg-vitroo.herokuapp.com/lista',
-        'https://rpg-vitroo.herokuapp.com/mesa',
-        'https://rpg-vitroo.herokuapp.com/listamesas',
     ],
     credentials:true,            
     optionSuccessStatus:204    
