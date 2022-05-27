@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 
 const corsConfig = {
-    origin:'*',
+    origin:'https://rpg-vitroo.herokuapp.com/',
     credentials:true,            
     optionSuccessStatus:200    
 };
@@ -15,4 +15,4 @@ app.use('/rpg', require('./route/mesasRoute'));
 app.use('/rpg', require('./route/personagensRoute'));
 app.use('/rpg', require('./route/mesas_personagensRoute'));
 
-app.listen(process.env.PORT ||4000);
+app.listen(process.env.PORT || 5555);

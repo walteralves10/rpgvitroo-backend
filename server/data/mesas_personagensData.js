@@ -14,6 +14,6 @@ exports.postMesas_personagens = (dados) => {
 //     return db.one('')
 // };
 
-exports.deleteMesas_personagens = (id_personagem, id_mesa) => {
-    return db.none('DELETE FROM mesas_personagens WHERE id_mesa = $1 and id_personagem = $2', [id_mesa, id_personagem]);
+exports.deleteMesas_personagens = (id_mesa) => {
+    return db.none('DELETE FROM mesas_personagens WHERE id_mesa = $1', [id_mesa]);
 };
