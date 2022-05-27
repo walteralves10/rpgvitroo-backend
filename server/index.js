@@ -4,7 +4,8 @@ const app = express();
 
 const corsConfig = {
     origin:[
-        'https://rpg-vitroo.herokuapp.com',
+        'http://rpg-vitroo.herokuapp.com'
+        //,        'http://localhost:3000'
     ],
     credentials:true,            
     optionSuccessStatus:204    
