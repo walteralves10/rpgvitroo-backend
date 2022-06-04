@@ -3,12 +3,13 @@ const cors = require('cors');
 const app = express();
 
 const corsConfig = {
-    origin:[
-        'https://rpg-vitroo.herokuapp.com:54414'
+    origin:['*'
+        //'https://rpg-vitroo.herokuapp.com',
+        //'https://rpgvitroo-backend.herokuapp.com'
         //,        'http://localhost:3000'
     ],
     credentials:true,            
-    optionSuccessStatus:204    
+    optionSuccessStatus:200    
 };
 
 app.use(cors(corsConfig));
